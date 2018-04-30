@@ -30,8 +30,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
     compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
-    compile 'com.h2database:h2:1.4.191'
-//    compile "mysql:mysql-connector-java"
+    //compile 'com.h2database:h2:1.4.191'
+    compile "mysql:mysql-connector-java"
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 

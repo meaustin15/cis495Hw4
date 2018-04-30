@@ -22,6 +22,17 @@ class RegistrationController {
     @Autowired
     AttendeeService attendeeService;
 
+    @RequestMapping("/myname")
+    @ResponseBody
+    public String myName() {
+        return "Matthew";
+    }
+
+    @RequestMapping(value = "/landing", method = RequestMethod.GET)
+    public String myLanding(Model model) {
+        model.addAttribute("attendee", new Attendee());
+        return "landing";
+    }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     String home(Model model) {
@@ -39,7 +50,7 @@ class RegistrationController {
     public String register(@ModelAttribute Attendee attendee, RedirectAttributes redirectAttributes)
     {
         attendeeService.addAttendee(attendee);
-        redirectAttributes.addFlashAttribute("flash", "Registered "+ attendee.getEmail());
+        redirectAttributes.addFlashAttribute("flash", "Registered "+ attendee.getName() + " Details: " + attendee.getEmail() + ", " + attendee.getPhone());
         return "redirect:/";
     }
 
